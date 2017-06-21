@@ -1,0 +1,432 @@
+@MainColor: #48CBB5;
+@ModifiedColor: #48CBB5;
+@ModifedText: darken(@ModifiedColor,35%);
+@GitAddColor: #EC6C5C;
+@GitAddText: darken(@GitAddColor,35%);
+
+.list-group,
+.list-tree {
+  li.list-nested-item.selected.status-modified > .list-item,
+  li.list-nested-item.status-modified > .list-item,
+  li:not(.list-nested-item).selected.status-modified,
+  li:not(.list-nested-item).status-modified {
+    color: @ModifiedColor;
+  }
+
+  li.list-nested-item.selected.status-added > .list-item,
+  li.list-nested-item.status-added > .list-item,
+  li:not(.list-nested-item).selected.status-added,
+  li:not(.list-nested-item).status-added {
+    color: @GitAddColor;
+  }
+}
+
+:focus {
+  .list-group,
+  .list-tree {
+    li.list-nested-item.selected,
+    li.list-nested-item.selected > .list-item,
+    li:not(.list-nested-item).selected {
+      &::before {
+        background: @MainColor;
+      }
+    }
+
+    li.list-nested-item.selected.status-modified::before {
+      background: @ModifiedColor;
+    }
+
+    li.list-nested-item.selected.status-modified > .list-item,
+    li:not(.list-nested-item).selected.status-modified {
+      color: @ModifedText;
+
+      &::before {
+        background: @ModifiedColor;
+      }
+    }
+
+    li.list-nested-item.selected.status-added::before {
+      background: @GitAddColor;
+    }
+
+    li.list-nested-item.selected.status-added > .list-item,
+    li:not(.list-nested-item).status-added.selected {
+      color: @GitAddText;
+
+      &::before {
+        background: @GitAddColor;
+      }
+    }
+  }
+}
+
+.deprecation-cop-status {
+  display: none !important;
+}
+
+#aec-status-bar-container {
+  display: none;
+}
+
+linter-tooltip linter-message .badge {
+  color: #666;
+}
+
+#linter-tooltip linter-message.warning {
+  border: 0 0 1px 0 solid #CF9F4D;
+  color: #CF9F4D;
+}
+
+.platform-linux .terminal-view {
+  font-family: 'Meslo LG L for Powerline';
+}
+
+.terminal-view .standard {
+  div {
+    font-size: 1em !important;
+  }
+  background: darken(#35312c,2);
+}
+
+.btn {
+  &:focus,
+  &:hover {
+    background-color: #433e37;
+  }
+}
+
+atom-text-editor.vim-mode-plus.normal-mode,
+atom-text-editor.vim-mode-plus.operator-pending-mode,
+atom-text-editor.vim-mode-plus.visual-mode {
+  &,// only keep this if you want to see the cursor on non-focused tabs
+
+  &.is-focused {
+    // shadow-DOM disabled
+    & {
+      /* cursor color */
+      .cursor {
+        background: white;
+        opacity: .1;
+      }
+
+      .blink-off .cursor {
+        // cursor style while blinking (if you so desire)
+      }
+    }
+  }
+}
+
+atom-text-editor.editor .relative.current-line {
+  color: @MainColor;
+}
+//Flex tab
+// .tab-bar {
+//   && {
+//     display: flex;
+//     flex-wrap: nowrap;
+//     width: 100%;
+//   }
+//
+//   &&& .tab:not(.pinned) {
+//     max-width: none !important;
+//     min-width: 1px;
+//     flex: auto;
+//     padding: 0;
+//   }
+// }
+
+.tab-bar {
+  &&& .tab:not(.pinned) {
+    min-width: 200px;
+  }
+}
+
+.bracket-matcher .region {
+  border-bottom: 1px solid @MainColor;
+}
+// Colors
+@yellow: #FBB839;
+@cyan: #56CBB7;
+@green: #38c181;
+@gray: #746B6B;
+@red: #FE5F4C;
+@weath: #dfd1c0;
+@white: #eee; // Syntax
+@syntax-main: @red;
+@syntax-plain-text: @weath;
+@syntax-string: @green;
+@syntax-type: @cyan;
+@syntax-comment: @gray;
+@syntax-keyword: @syntax-main;
+@syntax-function: @yellow;
+@syntax-function-definition: @syntax-plain-text;
+@syntax-variable: @syntax-plain-text;
+@syntax-class-name: @syntax-plain-text;
+@syntax-punctuation: @syntax-plain-text;
+@syntax-constant: @white;
+@ts-syntax-keyword: @syntax-keyword;
+@markup-syntax-tag: @red;
+@markup-syntax-attribute: @cyan;
+
+@style-selector: @cyan;
+
+atom-text-editor.editor {
+  .syntax--string {
+    color: @syntax-string;
+  }
+
+  .syntax--comment {
+    color: @syntax-comment !important;
+    font-style: italic;
+
+    .syntax--punctuation {
+      color: inherit;
+    }
+  }
+
+  .syntax--constant {
+    color: @syntax-constant;
+  }
+
+  .syntax--keyword {
+    font-style: bold;
+    color: @syntax-keyword;
+  }
+
+  .syntax--css,
+  .syntax--less,
+  .syntax--scss {
+    &.syntax--tag {
+      color: @yellow;
+    }
+
+    &.syntax--function {
+      color: @yellow;
+    }
+
+    &.syntax--operator,
+    &.syntax--punctuation {
+      color: @syntax-plain-text;
+    }
+
+    &.syntax--attribute-name,
+    .syntax--selector {
+      color: @style-selector;
+
+      .syntax--id {
+        color: inherit;
+      }
+    }
+
+    &.syntax--keyword {
+      color: @syntax-keyword;
+    }
+
+    &.syntax--constant {
+      color: @syntax-plain-text;
+    }
+
+    &.syntax--unit {
+      color: @syntax-plain-text;
+    }
+
+    &.syntax--variable {
+      color: @green;
+    }
+  }
+
+  .syntax--html, .syntax--jsx {
+    &.syntax--tag.syntax--name {
+      color: @markup-syntax-tag;
+    }
+    
+    &.syntax--attribute-name {
+      color: @markup-syntax-attribute;
+    }
+
+    &.syntax--punctuation {
+      color: @syntax-punctuation;
+    }
+
+    &.syntax--string {
+      color: @syntax-string;
+    }
+  }
+
+  .syntax--ts, .syntax--js {
+    
+    &.syntax--meta {
+      color: inherit;
+    }
+    
+    &.syntax--function.syntax--name {
+      color: @syntax-function;
+    }
+
+    &.syntax--storage {
+      color: @ts-syntax-keyword;
+    }
+  }
+  
+  .syntax--js {
+    &.syntax--this {
+      color: @syntax-keyword;
+    }
+    
+    &.syntax--function.syntax--support {
+      color: @syntax-function;
+    }
+    
+    &.syntax--accessor,
+    &.syntax--assignment {
+      color: @syntax-punctuation;
+    }
+    
+  }
+  
+  .syntax--ts {
+    &.syntax--type.syntax--name {
+      color: @syntax-type !important;
+    }
+
+    &.syntax--class.syntax--type.syntax--name {
+      color: @syntax-class-name !important;
+    }
+
+    &.syntax--type.syntax--name {
+      color: @syntax-type;
+    }
+
+    &.syntax--function.syntax--support {
+      color: @syntax-function;
+    }
+
+    &.syntax--method {
+      &.syntax--name {
+        color: @syntax-function-definition;
+      }
+    }
+
+    &.syntax--annotation,
+    &.syntax--assignment,
+    &.syntax--punctuation {
+      color: @syntax-punctuation;
+    }
+
+    &.syntax--double-slash {
+      color: @syntax-comment;
+      font-style: italic;
+
+      .syntax--punctuation {
+        color: inherit;
+      }
+    }
+
+    .syntax--string {
+      color: @syntax-string;
+    }
+
+    &.syntax--import,
+    &.syntax--import-equals,
+    &.syntax--triple-slash {
+      .syntax--string {
+        text-decoration: none!important;
+      }
+    }
+
+    &.variable {
+      color: @syntax-variable;
+    }
+
+    &.syntax--decorator {
+      .syntax--decorator {
+        color: @syntax-type;
+      }
+
+      .syntax--ts.syntax--function.syntax--entity {
+        color: @syntax-type;
+      }
+    }
+  }
+
+  .syntax--yaml {
+    &.syntax--string {
+      color: @syntax-string;
+
+      .syntax--name {
+        color: inherit;
+      }
+    }
+
+    &.syntax--constant,
+    &.syntax--unquoted {
+      color: @syntax-plain-text;
+    }
+  }
+}
+// flex modal overlay
+
+atom-panel.modal.overlay {
+  position: absolute;
+  border-top: none;
+  top: 0;
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+
+  > div {
+    display: block;
+    text-align: center;
+    padding: 5px 0;
+    margin: 0;
+    background: #35312c;
+    min-width: 600px;
+
+    & > atom-text-editor {
+      margin: 0;
+      text-align: left;
+      padding: 10px;
+      // line-height: normal;
+    }
+  }
+
+  .select-list {
+    background: #35312c;
+    text-align: left;
+
+    & > span {
+      padding: 10px 10px 20px;
+      min-width: 600px;
+      display: block;
+      text-align: center;
+      opacity: .5;
+      font-size: 1em;
+    }
+  }
+
+  ol.list-group {
+    min-width: 600px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.atom-dock-toggle-button-visible {
+  display: none;
+}
+
+#status-bar-quick-highlight .badge {
+  padding: auto 5px;
+  border-radius: 3px;
+
+  &::before {
+    left: -2px;
+    top: 0;
+  }
+}

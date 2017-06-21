@@ -1,0 +1,54 @@
+'.platform-linux, .platfomr-win32':
+  'ctrl-j': '!unset'
+
+'atom-workspace':
+  'ctrl-q':'!unset'
+  'alt-ctrl-\\': 'tree-view:reveal-active-file'
+  'ctrl-n': 'tree-view:add-file'
+  'ctrl-shift-n': 'tree-view:add-folder'
+  'f2': 'tree-view:rename'
+  'alt-m d': 'merge-conflicts:detect'
+  'ctrl-k k': 'choose-pane:start'
+  'ctrl-k ctrl-k': 'choose-pane:start'
+
+'atom-workspace atom-pane atom-text-editor:not([mini])':
+  'f2': 'tree-view:rename'
+  'ctrl-b': 'find-and-replace:select-next'
+  'ctrl-r': 'find-and-replace:show'
+  'ctrl-d': 'editor:duplicate-lines'
+  'ctrl-t': 'toggler:toggle'
+  'ctrl-shift-b': 'find-and-replace:select-all'
+  'ctrl-l': 'bookmarks:view-all'
+  'ctrl-m': 'bookmarks:toggle-bookmark'
+  'ctrl-j': 'jumpy:toggle'
+  'ctrl-k left': 'pane:split-left-and-move-active-item'
+  'ctrl-k right': 'pane:split-right-and-move-active-item'
+  'ctrl-k down': 'pane:split-down-and-move-active-item'
+  'ctrl-k up': 'pane:split-up-and-move-active-item'
+  'alt-left': 'window:focus-pane-on-left'
+  'alt-right': 'window:focus-pane-on-right'
+  'alt-up':'window:focus-pane-above'
+  'alt-down':'window:focus-pane-below'
+
+
+'atom-text-editor.autocomplete-active':
+  'ctrl-p': 'autocomplete-plus:move-up'
+  'ctrl-n': 'autocomplete-plus:move-down'
+  'ctrl-space': 'autocomplete-plus:move-down'
+
+'body .tree-view':
+  'ctrl-d':'tree-view:duplicate'
+
+
+'.nuclide-file-tree':
+  'left':'nuclide-file-tree:collapse-directory'
+  'right':'nuclide-file-tree:expand-directory'
+
+
+'atom-text-editor.conflicted':
+  'alt-m down': 'merge-conflicts:next-unresolved'
+  'alt-m up': 'merge-conflicts:previous-unresolved'
+  'alt-m enter': 'merge-conflicts:accept-current'
+  'alt-m r': 'merge-conflicts:revert-current'
+  'alt-m 1': 'merge-conflicts:accept-ours'
+  'alt-m 2': 'merge-conflicts:accept-theirs'

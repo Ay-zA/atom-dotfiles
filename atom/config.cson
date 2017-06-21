@@ -1,0 +1,175 @@
+"*":
+  "atom-beautify":
+    css:
+      convert_quotes: "single"
+      end_with_newline: true
+      no_lead_zero: true
+    html:
+      end_with_newline: true
+      indent_inner_html: true
+    js:
+      break_chained_methods: true
+      end_with_newline: true
+    less:
+      no_lead_zero: true
+    scss:
+      default_beautifier: "CSScomb"
+    typescript:
+      break_chained_methods: true
+      end_with_newline: true
+      jslint_happy: true
+      keep_array_indentation: true
+      keep_function_indentation: true
+      space_after_anon_function: true
+    yaml:
+      disabled: true
+  "atom-material-ui":
+    colors: {}
+    tabs:
+      compactTabs: true
+  "autocomplete-modules":
+    webpack: true
+  "autocomplete-plus":
+    defaultProvider: "Fuzzy"
+    enableAutoActivation: false
+    useCoreMovementCommands: false
+    useLocalityBonus: false
+  "choose-pane":
+    labelChars: "KABCDEFGHIJLMNOPQRSTUVWXYZ;"
+  "color-picker":
+    preferredFormat: "HEX"
+    randomColor: false
+  core:
+    audioBeep: false
+    autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    closeEmptyWindows: false
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+        ".flowconfig"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "autocomplete-snippets"
+      "line-count"
+      "tree-view"
+      "csslint"
+      "intentions"
+      "about"
+      "archive-view"
+      "welcome"
+      "symbols-view"
+      "package-generator"
+      "metrics"
+      "markdown-preview"
+      "link"
+      "language-toml"
+      "language-ruby-on-rails"
+      "language-ruby"
+      "language-perl"
+      "language-objective-c"
+      "language-mustache"
+      "language-make"
+      "language-java"
+      "language-gfm"
+      "language-clojure"
+      "language-c"
+      "exception-reporting"
+      "autoflow"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      "*.spec.ts"
+      "*.map.*"
+      "yarn.lock"
+      "node_modules"
+      "*.meta"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "earthsung-by-jackson-syntax"
+    ]
+    useProxySettingsWhenCallingApm: false
+  editor:
+    fontFamily: "Source code pro"
+    fontSize: 12
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "4b51ec71-5be9-4972-b799-befb1c67eed0"
+  "file-icons":
+    coloured: false
+  "file-types":
+    "^Docker*": "source.dockerfile"
+  "git-plus":
+    experimental:
+      useSplitDiff: true
+    general:
+      splitPane: "Right"
+  "language-babel":
+    autoIndentJSX: true
+  "linter-eslint":
+    lintHtmlFiles: true
+  "markdown-preview":
+    useGitHubStyle: true
+  pigments:
+    autocompleteSuggestionsFromValue: true
+    extendAutocompleteToColorValue: true
+    extendAutocompleteToVariables: true
+    markerType: "dot"
+    mergeColorDuplicates: true
+    notifyReloads: false
+    sortPaletteColors: "by color"
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        blue: "#3737af"
+      zBright:
+        brightBlue: "#6868ff"
+        brightGreen: "#67d667"
+    core: {}
+    iconColors:
+      green: "#73ba56"
+    style: {}
+    toggles:
+      autoClose: true
+  "project-manager":
+    alwaysOpenInSameWindow: true
+    savePathsRelativeToHome: true
+    sortBy: "last modified"
+  "remote-edit":
+    clearFileList: true
+    filterHostsUsing:
+      alias: true
+      hostname: false
+    foldersOnTop: true
+    rememberLastOpenDirectory: true
+    showHiddenFiles: true
+  "split-diff":
+    ignoreWhitespace: true
+    syncHorizontalScroll: true
+  tabs: {}
+  "toggle-quotes":
+    quoteCharacters: "\"'`"
+  "tree-view":
+    hideIgnoredNames: true
+  "updater-notify": {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnlyLines: true

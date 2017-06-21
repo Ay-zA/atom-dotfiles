@@ -1,0 +1,429 @@
+'.text.html.basic':
+  "backbone":
+    prefix: "!!"
+    body: "worked!"
+
+'.source.ts':
+  "var statement":
+    prefix: "v"
+    body: "var ${1:name}: ${2:any}$3"
+  "var assignment":
+    prefix: "v="
+    body: "var ${1:name}: ${2:any} = ${3:value};$4"
+  "let statement":
+    prefix: "l"
+    body: "let ${1:name}: ${2:any}$3"
+  "let assignment":
+    prefix: "l="
+    body: "let ${1:name}: ${2:any} = ${3:value};$4"
+  "const statement":
+    prefix: "co"
+    body: "const ${1:name}: ${2:any}$3"
+  "const assignment":
+    prefix: "co="
+    body: "const ${1:name}: ${2:any} = ${3:value};$4"
+
+".source.json":
+  "JSON key/value pair":
+    prefix: ":"
+    body: """
+          "${1:key}": "${2:value}"
+          """
+
+'.source.js':
+  "var statement":
+    prefix: "v"
+    body: "var ${1:name}$2"
+  "var assignment":
+    prefix: "v="
+    body: "var ${1:name} = ${2:value};$3"
+  "let statement":
+    prefix: "l"
+    body: "let ${1:name}$2"
+  "let assignment":
+    prefix: "l="
+    body: "let ${1:name} = ${2:value};$3"
+  "const statement":
+    prefix: "co"
+    body: "const ${1:name}$2"
+  "const assignment":
+    prefix: "co="
+    body: "const ${1:name} = ${2:value};$3"
+  "require":
+    prefix: "req"
+    body: 'const ${1:name} = require(\'${1:name}\');'
+  "Express use":
+    prefix: 'use'
+    body: 'app.use($1);'
+
+'.source.js, .source.ts, .source.tsx, .source.js-semantic':
+  'Log':
+    prefix: 'cl'
+    body: 'console.log(${1:\'---  Here ---\'});$2'
+  'Warn':
+    prefix: 'cw'
+    body: 'console.warn(${1:\'---  Here ---\'});$2'
+  'Error':
+    prefix: 'ce'
+    body: 'console.error(${1:\'---  Here ---\'});$2'
+  'String':
+    prefix: 'S'
+    body: 'String'
+  'Number':
+    prefix: 'N'
+    body: 'Number'
+  'Object':
+    prefix: 'O'
+    body: 'Object'
+  'Array':
+    prefix: 'A'
+    body: 'Array<${1:any}>$2'
+  'Node callback':
+    prefix: "cb"
+    body: '(err, ${1:value}) => {${0}}'
+  # class
+  "class":
+    prefix: "c"
+    body: """
+          class ${1:name} {
+          \tconstructor(${2:arguments}) {
+          \t\t${0}
+          \t}
+          }
+          """
+  "anonymous function":
+    prefix: "f"
+    body: "function (${1:arguments}) {${0}}"
+  "named function":
+    prefix: "fun"
+    body: """
+          function ${1:name}(${2:arguments}) {
+          \t${0}
+          }
+          """
+  # If
+  "if statement":
+    prefix: "if"
+    body: """
+          if (${1:condition}) {
+          \t${0}
+          }
+          """
+  "else statement":
+    prefix: "el"
+    body: """
+          else {
+          \t${0}
+          }
+          """
+  "if/else statement":
+    prefix: "ife"
+    body: """
+          if (${1:condition}) {
+          \t$2
+          } else {
+          \t$3
+          }
+          """
+  "else if statement":
+    prefix: "ei"
+    body: """
+          else if (${1:condition}) {
+          \t${0}
+          }
+          """
+  "for loop":
+    prefix: "fl"
+    body: """
+          for (let ${1:i} = 0, ${2:len} = ${3:iterable}.length; ${1:i} < ${2:len}; ${1:i}++) {
+          \t${0}
+          }
+          """
+  "for in loop":
+    prefix: "fi"
+    body: """
+          for (let ${1:key} in ${2:source}) {
+          \tif (${2:source}.hasOwnProperty(${1:key})) {
+          \t\t${0}
+          \t}
+          }
+          """
+  "for of loop":
+    prefix: "fo"
+    body: """
+          for (let ${1:key} of ${2:source}) {
+          \t${0}
+          }
+          """
+  "while loop":
+    prefix: "wl"
+    body: """
+          while (${1:condition}) {
+          \t${0}
+          }
+          """
+  "try/catch":
+    prefix: "tc"
+    body: """
+          try {
+          \t${0}
+          } catch (${1:err}) {
+          \t
+          }
+          """
+  "try/finally":
+    prefix: "tf"
+    body: """
+          try {
+          \t${0}
+          } finally {
+          \t
+          }
+          """
+  "try/catch/finally":
+    prefix: "tcf"
+    body: """
+          try {
+          \t${0}
+          } catch (${1:err}) {
+          \t
+          } finally {
+          \t
+          }
+          """
+  "switch case":
+    prefix: "sw"
+    body: """
+          switch (${1:expr}) {
+          \tcase ${2:value}:
+          \t\treturn $0;
+          \tdefault:
+          \t\treturn;
+          }
+          """
+  #Itratable
+  "chain map":
+    prefix: ".map"
+    body: ".map(${1:item} => ${0})"
+  "reduce":
+    prefix: "reduce"
+    body: """
+          ${1:iterable}.reduce((${2:previous}, ${3:current}) => {
+          \t${0}
+          }${4:, initial});
+          """
+  "chain reduce":
+    prefix: ".reduce"
+    body: ".reduce((${1:previous}, ${2:current}) => {${0}}${4:, initial})"
+  "filter":
+    prefix: "filter"
+    body: """
+          ${1:iterable}.filter(${2:item} => {
+          \t${0}
+          });
+          """
+  "chain filter":
+    prefix: ".filter"
+    body: ".filter(${1:item} => {${0}})"
+  "find":
+    prefix: "find"
+    body: """
+          ${1:iterable}.find(${2:item} => {
+          \t${0}
+          });
+          """
+  "chain find":
+    prefix: ".find"
+    body: ".find(${1:item} => {${0}})"
+
+  "module export":
+    prefix: "ex"
+    body: "export ${1:member};"
+  "module default export":
+    prefix: "exd"
+    body: "export default ${1:member};"
+  "import module":
+    prefix: "im"
+    body: "import ${1:*} from '${2:module}';"
+  "import module as":
+    prefix: "ima"
+    body: "import ${1:*} as ${2:name} from '${3:module}';"
+
+  "event handler":
+    prefix: "on"
+    body: """
+          ${1:emitter}.on('${2:event}', (${3:arguments}) => {
+          \t${0}
+          });
+          """
+  "chain event handler":
+    prefix: ".on"
+    body: ".on('${2:event}', (${3:arguments}) => {${0}})"
+
+  "Express middleware":
+    prefix: "xm"
+    body: """
+          function (req, res${1:, next}) {
+          \t${0}
+          }
+          """
+  "Express error handler":
+    prefix: "xerr"
+    body: """
+          function (err, req, res, next) {
+          \t${0}
+          }
+          """
+  "setTimeout":
+    prefix: "st"
+    body: """
+          setTimeout(() => {
+          \t${0}
+          }, ${1:delay});
+          """
+  "setInterval":
+    prefix: "si"
+    body: """
+          setInterval(() => {
+          \t${0}
+          }, ${1:delay});
+          """
+  "Promise Then":
+    prefix: "then"
+    body: """
+          .then(${1:response} => ${1:response}.$2);
+          """
+  "setImmediate":
+    prefix: "sim"
+    body: """
+          setImmediate(() => {
+          \t${0}
+          });
+          """
+  "process nextTick":
+    prefix: "nt"
+    body: """
+          process.nextTick(() => {
+          \t${1:}
+          });
+          """
+
+#React:
+'.source.js.jsx':
+  'React ES6 Component':
+    'prefix': '!'
+    'body': """
+              import React, { Component, PropTypes } from 'react';
+              export default class ${1:MyComponent} extends Component {
+                render() {
+                  return (${2:<div>${1:MyComponent}</div>});
+                }
+              }
+              ${1}.propTypes = {
+              };
+            """
+  'React ES6 Constructor':
+    'prefix': 'ctor'
+    'body': """
+              constructor(props) {
+                super(props);
+                ${1}
+              }
+            """
+  # 'React ES6 Functional Component':
+  #   'prefix': 'rfunc'
+  #   'body': """
+  #             import React, { PropTypes } from 'react';
+  #             export default function ${1}(props) {
+  #               return (
+  #                 ${2:<div>MyComponent</div>}
+  #               );
+  #             }
+  #             ${1}.propTypes = {
+  #             };
+  #           """
+  # 'React ES6 bind method to this':
+  #   'prefix': 'rbm',
+  #   'body': """
+  #             this.${1} = this.${1}.bind(this);
+  #           """
+  # 'React ES6 props definition':
+  #   'prefix': 'rpd',
+  #   'body': """
+  #             ${1}.propTypes = {
+  #               ${2}
+  #             };
+  #           """
+  #
+  #
+  # # PropType string
+  # 'React PropType string':
+  #   'prefix': 'rpstr',
+  #   'body': "${1:myProp}: PropTypes.string,"
+  # 'React PropType string required':
+  #   'prefix': 'rpstrr',
+  #   'body': "${1:myProp}: PropTypes.string.isRequired,"
+  #
+  # # PropType number
+  # 'React PropType number':
+  #   'prefix': 'rpn',
+  #   'body': "${1:myProp}: PropTypes.number,"
+  # 'React PropType number required':
+  #   'prefix': 'rpnr',
+  #   'body': "${1:myProp}: PropTypes.number.isRequired,"
+  #
+  # # PropType object
+  # 'React PropType object':
+  #   'prefix': 'rpo',
+  #   'body': "${1:myProp}: PropTypes.object,"
+  # 'React PropType object required':
+  #   'prefix': 'rpor',
+  #   'body': "${1:myProp}: PropTypes.object.isRequired,"
+  #
+  # # PropType array
+  # 'React PropType array':
+  #   'prefix': 'rpa',
+  #   'body': "${1:myProp}: PropTypes.array,"
+  # 'React PropType array required':
+  #   'prefix': 'rpar',
+  #   'body': "${1:myProp}: PropTypes.array.isRequired,"
+  #
+  # # PropType bool
+  # 'React PropType bool':
+  #   'prefix': 'rpb',
+  #   'body': "${1:myProp}: PropTypes.bool,"
+  # 'React PropType bool required':
+  #   'prefix': 'rpbr',
+  #   'body': "${1:myProp}: PropTypes.bool.isRequired,"
+  #
+  # # PropType element
+  # 'React PropType element':
+  #   'prefix': 'rpe',
+  #   'body': "${1:myProp}: PropTypes.element,"
+  # 'React PropType element required':
+  #   'prefix': 'rper',
+  #   'body': "${1:myProp}: PropTypes.element.isRequired,"
+  #
+  # # PropType function
+  # 'React PropType function':
+  #   'prefix': 'rpf',
+  #   'body': "${1:myProp}: PropTypes.func,"
+  # 'React PropType function required':
+  #   'prefix': 'rpfr',
+  #   'body': "${1:myProp}: PropTypes.func.isRequired,"
+  #
+  # # PropType shape
+  # 'React PropType shape':
+  #   'prefix': 'rps',
+  #   'body': """
+  #             ${1:myProp}: PropTypes.shape({
+  #               ${2}
+  #             }),
+  #           """
+  # 'React PropType shape required':
+  #   'prefix': 'rpsr',
+  #   'body': """
+  #             ${1:myProp}: PropTypes.shape({
+  #               ${2}
+  #             }).isRequired,
+  #           """
